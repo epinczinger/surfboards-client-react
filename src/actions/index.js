@@ -1,9 +1,11 @@
 import axios from 'axios';
 
+const SERVER_URL = 'https://surfshop-api.herokuapp.com';
+
 export const getSurfboards = () => (dispatch) => {
   axios({
     method: 'get',
-    url: 'https://surfshop-api.herokuapp.com/surfboards',
+    url: `${SERVER_URL}/surfboards`,
     headers: {
       Accept: 'application/json',
       mode: 'cors',
@@ -24,7 +26,7 @@ export const getSurfboards = () => (dispatch) => {
 export const getAccesories = () => (dispatch) => {
   axios({
     method: 'get',
-    url: 'https://surfshop-api.herokuapp.com/accesories',
+    url: `${SERVER_URL}/accesories`,
     headers: {
       Accept: 'application/json',
       mode: 'cors',
@@ -40,4 +42,34 @@ export const getAccesories = () => (dispatch) => {
       type: 'GET_ACCESORIES_ERROR',
       payload: error,
     }));
+};
+
+export const signUp = (email, password) => (dispatch) => {
+  axios({
+    method: 'post',
+    url: `${SERVER_URL}/users/sign_up`,
+    data: {
+      email,
+      password,
+    },
+    headers: {
+      Accept: 'application/json',
+      mode: 'cors',
+    },
+  }).then((response) => {
+    if (typeof response.headers['access-token'] === 'string') {
+      window.localStorage.setItem(
+        'sessionID',
+        response.headers['access-token'],
+      );
+    }
+  }).catch((error) => {
+    if (error.message === 'Request failed with status code 422') {
+      dispatch({ type: 'SIGN_ERROR', payload: 'Account already exists..' });
+    }
+  });
+};
+
+export const resetError = () => (dispatch) => {
+  dispatch({ type: 'RESET_SIGN_ERROR' });
 };
