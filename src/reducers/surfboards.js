@@ -1,4 +1,4 @@
-const surfboardReducer = (state = [], action) => {
+const surfboardsReducer = (state = [], action) => {
   switch (action.type) {
     case 'GET_SURFBOARDS':
       return action.payload;
@@ -9,4 +9,4 @@ const surfboardReducer = (state = [], action) => {
   }
 };
 
-export default surfboardReducer;
+export default surfboardsReducer;

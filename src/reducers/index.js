@@ -1,9 +1,11 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import surfboardReducer from './surfboard';
+import surfboardsReducer from './surfboards';
+import accesoriesReducer from './accesories';
 
 const rootReducer = combineReducers({
-  surfboard: surfboardReducer,
+  accesories: accesoriesReducer,
+  surfboards: surfboardsReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
