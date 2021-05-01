@@ -44,6 +44,38 @@ export const getAccesories = () => (dispatch) => {
     }));
 };
 
+export const signIn = (email, password) => (dispatch) => {
+  axios({
+    method: 'post',
+    url: `${SERVER_URL}/users/sign_in`,
+    data: {
+      email,
+      password,
+    },
+    headers: {
+      Accept: 'application/json',
+      mode: 'cors',
+    },
+  })
+    .then((response) => {
+      if (typeof response.headers['access-token'] === 'string') {
+        window.localStorage.setItem(
+          'sessionID',
+          response.headers['access-token'],
+        );
+        dispatch({
+          type: 'SIGN_IN_UP',
+          payload: response.headers['access-token'],
+        });
+      }
+    })
+    .catch((error) => {
+      if (error.message === 'Request failed with status code 422') {
+        dispatch({ type: 'SIGN_ERROR', payload: 'Account already exists..' });
+      }
+    });
+};
+
 export const signUp = (email, password) => (dispatch) => {
   axios({
     method: 'post',
@@ -62,6 +94,10 @@ export const signUp = (email, password) => (dispatch) => {
         'sessionID',
         response.headers['access-token'],
       );
+      dispatch({
+        type: 'SIGN_IN_UP',
+        payload: response.headers['access-token'],
+      });
     }
   }).catch((error) => {
     if (error.message === 'Request failed with status code 422') {
