@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SideBar = () => (
-  <div className="sm:flex text-gray-800 flex-col justify-between sm:w-56 bg-gray-100 sm:h-screen z-1">
+  <div className="sm:flex text-gray-800 flex-col justify-between sm:w-56 bg-gray-100 sm:h-screen border-r">
     <div className="p-4 text-center hover:bg-blue-300 text-2xl hover:text-gray-100 font-semibold">
       <Link to="/" className="p-2">
         Surfshop

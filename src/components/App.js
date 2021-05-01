@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { getAccesories, getSurfboards } from '../actions';
 import SideBar from './SideBar';
+import SignUp from './SignUp';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -13,11 +14,13 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App flex">
       <Router>
         <SideBar />
         <Switch>
-          <Route />
+          <Route path="/sign_up">
+            <SignUp />
+          </Route>
         </Switch>
       </Router>
     </div>
