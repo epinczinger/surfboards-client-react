@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { getSurfboards } from '../actions';
+import { getAccesories, getSurfboards } from '../actions';
 import SideBar from './SideBar';
 
 const App = () => {
@@ -9,6 +9,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getSurfboards());
+    dispatch(getAccesories());
   }, []);
 
   return (
