@@ -3,28 +3,28 @@ import { Link } from 'react-router-dom';
 
 const SideBar = () => (
   <div className="sm:flex text-gray-800 flex-col justify-between sm:w-56 bg-gray-100 sm:h-screen z-1">
-    <div className="p-4 text-center hover:bg-blue-300 text-2xl font-semibold">
+    <div className="p-4 text-center hover:bg-blue-300 text-2xl hover:text-gray-100 font-semibold">
       <Link to="/" className="p-2">
         Surfshop
       </Link>
     </div>
     <div className="text-center font-semibold text-xl">
-      <div className="hover:bg-blue-300 p-3">
+      <div className="hover:bg-blue-300 p-3 hover:text-gray-100">
         <Link to="/surfboards" className="">
           Surfboards
         </Link>
       </div>
-      <div className="hover:bg-blue-300 p-3">
+      <div className="hover:bg-blue-300 p-3 hover:text-gray-100">
         <Link to="/accesories" className="">
           Accesories
         </Link>
       </div>
-      <div className="hover:bg-blue-300 p-3">
+      <div className="hover:bg-blue-300 p-3 hover:text-gray-100">
         <Link to="/lifestyle" className="">
           Lifestyle
         </Link>
       </div>
-      <div className="hover:bg-blue-300 p-3">
+      <div className="hover:bg-blue-300 p-3 hover:text-gray-100">
         <Link to="/favourites" className="">
           Favourites
         </Link>
