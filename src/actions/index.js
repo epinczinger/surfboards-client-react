@@ -21,4 +21,23 @@ export const getSurfboards = () => (dispatch) => {
     }));
 };
 
-export const getAccesories = {};
+export const getAccesories = () => (dispatch) => {
+  axios({
+    method: 'get',
+    url: 'https://surfshop-api.herokuapp.com/accesories',
+    headers: {
+      Accept: 'application/json',
+      mode: 'cors',
+    },
+  })
+    .then((response) => {
+      dispatch({
+        type: 'GET_ACCESORIES',
+        payload: response.data,
+      });
+    })
+    .catch((error) => dispatch({
+      type: 'GET_ACCESORIES_ERROR',
+      payload: error,
+    }));
+};
