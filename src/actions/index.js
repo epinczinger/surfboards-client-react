@@ -106,6 +106,24 @@ export const signUp = (email, password) => (dispatch) => {
   });
 };
 
+export const signOut = (authToken) => (dispatch) => {
+  axios({
+    method: 'delete',
+    url: `${SERVER_URL}/users/sign_out`,
+    headers: {
+      Accept: 'application/json',
+      Authorization: authToken,
+    },
+  }).then((response) => {
+    if (response) {
+      window.localStorage.clear();
+      dispatch({
+        type: 'SIGN_OUT',
+      });
+    }
+  }).catch((error) => dispatch({ type: 'SIGN_ERROR', payload: error }));
+};
+
 export const resetError = () => (dispatch) => {
   dispatch({ type: 'RESET_SIGN_ERROR' });
 };
