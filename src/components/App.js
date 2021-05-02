@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { getAccesories, getSurfboards } from '../actions';
 import SideBar from './SideBar';
 import SignUp from './SignUp';
+import SignIn from './SignIn';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,9 @@ const App = () => {
         <Switch>
           <Route path="/sign_up">
             <SignUp />
+          </Route>
+          <Route path="/sign_in">
+            <SignIn />
           </Route>
         </Switch>
       </Router>
