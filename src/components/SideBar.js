@@ -3,12 +3,26 @@ import { Link } from 'react-router-dom';
 
 const SideBar = () => (
   <div className="sm:flex text-gray-800 flex-col justify-between sm:w-56 bg-gray-100 sm:h-screen border-r">
-    <div className="p-4 text-center hover:bg-blue-300 text-2xl hover:text-gray-100 font-semibold">
-      <Link to="/" className="p-2">
-        Surfshop
-      </Link>
+    <div className="">
+      <div className="p-4 text-center hover:bg-blue-300 text-3xl hover:text-gray-100 font-semibold">
+        <Link to="/" className="p-2">
+          Surfshop
+        </Link>
+      </div>
+      <div className="flex justify-center text-sm text-gray-600">
+        <div className="hover:text-blue-400">
+          <Link to="/sign_in" className="p-3">
+            Sign In
+          </Link>
+        </div>
+        <div className="hover:text-blue-400">
+          <Link to="/sign_up" className="p-3">
+            Sign Up
+          </Link>
+        </div>
+      </div>
     </div>
-    <div className="text-center font-semibold text-xl">
+    <div className="text-left pl-3 font-semibold text-xl">
       <div className="hover:bg-blue-300 p-3 hover:text-gray-100">
         <Link to="/surfboards" className="">
           Surfboards
@@ -87,5 +101,4 @@ const SideBar = () => (
     </div>
   </div>
 );
-
 export default SideBar;
