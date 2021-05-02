@@ -36,8 +36,8 @@ const LogIn = () => {
     <div className="flex flex-row items-center mx-auto pt-4">
       {isLoggedIn && <Redirect to="/" />}
       <div className="w-11/12 sm:w-full max-w-xs mx-auto pb-16">
-        <h2 className="text-3xl font-medium sm:text-5xl text-center mb-4">
-          Log In!
+        <h2 className="sign-title text-gray-700 text-3xl font-medium sm:text-5xl text-center mb-4">
+          Sign In!
         </h2>
         <form className="bg-white shadow-md text-xl rounded px-8 pt-6 pb-8 mb-4">
           <label
@@ -76,7 +76,7 @@ const LogIn = () => {
           {error !== '' ? (
             <p className="text-red-500 text-sm italic font-bold">{error}</p>
           ) : null}
-          <Link onClick={() => dispatch(resetError())} to="/">
+          <Link onClick={() => dispatch(resetError())} to="/sign_up">
             <p className="text-blue-400 hover:text-blue-700">
               Need an account?
             </p>
