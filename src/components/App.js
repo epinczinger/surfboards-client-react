@@ -6,10 +6,10 @@ import SideBar from './SideBar';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
 import SurfboardDetails from './SurfboardDetails';
+import SurfboardsList from '../containers/SurfboardsList';
 
 const App = () => {
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getSurfboards());
     dispatch(getAccesories());
@@ -20,14 +20,17 @@ const App = () => {
       <Router>
         <SideBar />
         <Switch>
-          <Route path="/sdetails/1">
+          <Route path="/surfboards/:id" exact>
             <SurfboardDetails />
           </Route>
-          <Route path="/sign_up">
+          <Route path="/sign_up" exact>
             <SignUp />
           </Route>
-          <Route path="/sign_in">
+          <Route path="/sign_in" exact>
             <SignIn />
+          </Route>
+          <Route path="/surfboards" exact>
+            <SurfboardsList />
           </Route>
         </Switch>
       </Router>

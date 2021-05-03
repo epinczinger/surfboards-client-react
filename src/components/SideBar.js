@@ -120,7 +120,7 @@ const SideBar = () => {
   );
 
   return (
-    <div className="md:flex text-gray-800 flex-col justify-between md:w-56 bg-white h-screen border-r">
+    <div className="md:flex sticky top-0 text-gray-800 flex-col justify-between md:w-56 bg-white h-screen border-r">
       {toggleMobileMenu ? mobileMenu : null}
       <div className="md:hidden absolute top-1 left-1 flex justify-end text-2xl p-2 my-auto">
         {mobileMenuButton}
