@@ -6,7 +6,7 @@ const SurfboardsList = () => {
   const surfboards = useSelector((state) => state.surfboards);
 
   const surfboardsList = surfboards.map((s) => (
-    <div key={surfboards.id}>
+    <div key={s.id}>
       <Surfboard
         id={s.id}
         model={s.model}
