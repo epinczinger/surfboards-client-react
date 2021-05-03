@@ -120,12 +120,12 @@ const SideBar = () => {
   );
 
   return (
-    <div className="md:flex sticky top-0 text-gray-800 flex-col justify-between md:w-56 bg-white h-screen border-r">
+    <div className="sm:flex sticky top-0 text-gray-800 flex-col justify-between md:w-56 bg-white h-screen border-r">
       {toggleMobileMenu ? mobileMenu : null}
-      <div className="md:hidden absolute top-1 left-1 flex justify-end text-2xl p-2 my-auto">
+      <div className="sm:hidden absolute top-1 left-1 flex justify-end text-2xl p-2 my-auto">
         {mobileMenuButton}
       </div>
-      <div className="hidden md:block">
+      <div className="hidden sm:block">
         <div className="p-4 text-center hover:bg-blue-300 text-4xl hover:text-gray-100 font-semibold">
           <Link to="/" className="p-2">
             Surfshop
@@ -133,10 +133,10 @@ const SideBar = () => {
         </div>
         {signButtons}
       </div>
-      <div className="text-left pl-3 pb-20 font-semibold text-2xl hidden md:block">
+      <div className="text-left pl-3 pb-20 font-semibold text-2xl hidden sm:block">
         {menuLinks}
       </div>
-      <div className="hidden md:block">
+      <div className="hidden sm:block">
         <FooterIcons />
       </div>
     </div>
