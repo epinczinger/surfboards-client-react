@@ -1,16 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Surfboard = ({
-  id, model, brand, price, description, img,
+  id, model, brand, price, img,
 }) => (
   <div id={id} className="flex-col m-2">
     <div className="py-5 px-2 sm:ml-4 shadow-lg">
-      <img className="himglist object-cover py-4 mx-auto" src={img} alt="surfboard" />
+      <img
+        className="himglist object-cover py-4 mx-auto"
+        src={img}
+        alt="surfboard"
+      />
     </div>
     <div className="py-5 px-2 sm:ml-4 shadow-lg">
-      <div className="uppercase text-lg font-semibold bg-gray-200 p-2">
-        {model}
+      <div className="font-semibold bg-gray-200 p-2 flex justify-between">
+        <div className="p-2 uppercase text-lg">{model}</div>
+        <div className="p-2 border text-blue-400">
+          <Link to={`/surfboards/${id}`}>Details</Link>
+        </div>
       </div>
       <div className="mt-2 text-gray-800 p-2">
         <span className="font-semibold">Material: </span>
@@ -35,7 +43,6 @@ const Surfboard = ({
           <span className="font-normal"> Yes</span>
         </p>
       </div>
-      <div className="mt-2 text-gray-800 p-2">{description}</div>
     </div>
   </div>
 );
@@ -46,16 +53,14 @@ Surfboard.defaultProps = {
   id: '',
   model: '',
   price: '',
-  description: '',
   brand: '',
   img: '',
 };
 
 Surfboard.propTypes = {
-  id: PropTypes.string,
+  id: PropTypes.number,
   model: PropTypes.string,
   price: PropTypes.string,
-  description: PropTypes.string,
   img: PropTypes.string,
   brand: PropTypes.string,
 };
