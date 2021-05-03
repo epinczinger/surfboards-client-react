@@ -3,3 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 /* stylelint-enable */
+
+.himg {
+    min-height: 400px;
+    max-height: 550px;
+}

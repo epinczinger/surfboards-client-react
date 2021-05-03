@@ -5,6 +5,7 @@ import { getAccesories, getSurfboards } from '../actions';
 import SideBar from './SideBar';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
+import SurfboardDetails from './SurfboardDetails';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,9 @@ const App = () => {
       <Router>
         <SideBar />
         <Switch>
+          <Route path="/sdetails/1">
+            <SurfboardDetails />
+          </Route>
           <Route path="/sign_up">
             <SignUp />
           </Route>
