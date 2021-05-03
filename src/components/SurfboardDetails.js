@@ -2,8 +2,8 @@ import React from 'react';
 
 const SurfboardDetails = () => (
   <div className="w-full text-gray-800 bg-white min-h-screen shadow-md overflow-hidden flex flex-col justify-center">
-    <div className="sm:flex justify-around h-full">
-      <div className="py-5 px-2 ml-4 shadow-lg">
+    <div className="sm:flex sm:my-2 justify-around h-full">
+      <div className="py-5 px-2 sm:ml-4 shadow-lg">
         <img
           className="himg w-50 object-cover py-4"
           src="https://cabiancasurfboards.com/wp-content/uploads/2019/09/cabianca_DFK_20.jpg"

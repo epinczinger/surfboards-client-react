@@ -55,6 +55,48 @@ const SideBar = () => {
     </>
   );
 
+  const signButtons = (
+    <>
+      {!isLoggedIn && (
+        <div className="flex justify-center text-sm text-gray-600 p-3">
+          <div className="hover:text-blue-400">
+            <Link
+              onClick={() => setToggleMobileMenu(false)}
+              to="/sign_in"
+              className="p-3"
+            >
+              Sign In
+            </Link>
+          </div>
+          <div className="hover:text-blue-400">
+            <Link
+              onClick={() => setToggleMobileMenu(false)}
+              to="/sign_up"
+              className="p-3"
+            >
+              Sign Up
+            </Link>
+          </div>
+        </div>
+      )}
+      {isLoggedIn && (
+        <div className="flex justify-center text-sm text-gray-600">
+          <div className="hover:text-blue-400">
+            <button
+              type="button"
+              onClick={() => {
+                setToggleMobileMenu(false);
+                dispatch(signOut(authToken));
+              }}
+              className="p-3"
+            >
+              Sign Out
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
   const mobileMenuButton = (
     <button type="button" onClick={handleToggleMobileMenu}>
       ☰
@@ -62,7 +104,7 @@ const SideBar = () => {
   );
 
   const mobileMenu = (
-    <div className="absolute w-screen sm:hidden h-screen bg-gray-800 text-gray-100 p-4">
+    <div className="absolute w-screen sm:hidden min-h-screen flex flex-col justify-around text-gray-800 bg-white p-4">
       <button
         type="button"
         onClick={handleToggleMobileMenu}
@@ -73,6 +115,7 @@ const SideBar = () => {
       <div className="h-full flex flex-col w-11/12 pb-40 pt-10 px-5 text-4xl mx-auto items-center justify-evenly">
         {menuLinks}
       </div>
+      {signButtons}
     </div>
   );
 
@@ -88,33 +131,7 @@ const SideBar = () => {
             Surfshop
           </Link>
         </div>
-        {!isLoggedIn && (
-          <div className="flex justify-center text-sm text-gray-600 p-3">
-            <div className="hover:text-blue-400">
-              <Link to="/sign_in" className="p-3">
-                Sign In
-              </Link>
-            </div>
-            <div className="hover:text-blue-400">
-              <Link to="/sign_up" className="p-3">
-                Sign Up
-              </Link>
-            </div>
-          </div>
-        )}
-        {isLoggedIn && (
-          <div className="flex justify-center text-sm text-gray-600">
-            <div className="hover:text-blue-400">
-              <button
-                type="button"
-                onClick={() => dispatch(signOut(authToken))}
-                className="p-3"
-              >
-                Sign Out
-              </button>
-            </div>
-          </div>
-        )}
+        {signButtons}
       </div>
       <div className="text-left pl-3 pb-20 font-semibold text-2xl hidden md:block">
         {menuLinks}
