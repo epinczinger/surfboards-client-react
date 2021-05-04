@@ -1,19 +1,20 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Surfboard from '../components/Surfboard';
+import Item from '../components/Item';
 
 const SurfboardsList = () => {
   const surfboards = useSelector((state) => state.surfboards);
 
   const surfboardsList = surfboards.map((s) => (
     <div key={s.id}>
-      <Surfboard
+      <Item
         id={s.id}
         model={s.model}
         brand={s.brand}
         price={s.price}
         description={s.description}
         img={s.image_url}
+        type="surfboards"
       />
     </div>
   ));

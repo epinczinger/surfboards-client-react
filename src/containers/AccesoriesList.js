@@ -1,19 +1,20 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Accesory from '../components/Accesory';
+import Item from '../components/Item';
 
 const AccesoriesList = () => {
   const accesories = useSelector((state) => state.accesories);
 
   const accesoriesList = accesories.map((a) => (
     <div key={a.id}>
-      <Accesory
+      <Item
         id={a.id}
         model={a.model}
         brand={a.brand}
         price={a.price}
         description={a.description}
         img={a.image_url}
+        type="accesories"
       />
     </div>
   ));
