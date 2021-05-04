@@ -11,6 +11,8 @@ const sessionReducer = (
       return ['', false, ''];
     case 'SIGN_ERROR':
       return ['', false, action.payload];
+    case 'LOCAL_STORAGE_SIGN_IN':
+      return action.payload;
     default:
       return state;
   }
