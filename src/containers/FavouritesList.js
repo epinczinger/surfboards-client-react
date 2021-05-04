@@ -15,8 +15,6 @@ const FavouritesList = () => {
 
     const favourites = useSelector((state) => state.favourites);
 
-    console.log(favourites);
-
     favouritesList = favourites !== []
       ? favourites.map((a) => (
         <div key={`${a.id}${a.model}`}>
