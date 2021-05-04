@@ -9,6 +9,8 @@ import SurfboardDetails from './SurfboardDetails';
 import AccesoryDetails from './AccesoryDetails';
 import SurfboardsList from '../containers/SurfboardsList';
 import AccesoriesList from '../containers/AccesoriesList';
+import DefaultNotFound from '../containers/DefaultNotFound';
+import Lifestyle from '../containers/Lifestyle';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -39,6 +41,12 @@ const App = () => {
           </Route>
           <Route path="/accesories" exact>
             <AccesoriesList />
+          </Route>
+          <Route path="/lifestyle" exact>
+            <Lifestyle />
+          </Route>
+          <Route path="*">
+            <DefaultNotFound />
           </Route>
         </Switch>
       </Router>
