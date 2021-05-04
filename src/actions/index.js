@@ -23,6 +23,28 @@ export const getSurfboards = () => (dispatch) => {
     }));
 };
 
+export const getFavourites = (authToken) => (dispatch) => {
+  axios({
+    method: 'get',
+    url: `${SERVER_URL}/favourites`,
+    headers: {
+      Accept: 'application/json',
+      mode: 'cors',
+      Authorization: authToken,
+    },
+  })
+    .then((response) => {
+      dispatch({
+        type: 'GET_FAVOURITES',
+        payload: response.data,
+      });
+    })
+    .catch((error) => dispatch({
+      type: 'FAVOURITES_ERROR',
+      payload: error,
+    }));
+};
+
 export const getAccesories = () => (dispatch) => {
   axios({
     method: 'get',
@@ -126,4 +148,12 @@ export const signOut = (authToken) => (dispatch) => {
 
 export const resetError = () => (dispatch) => {
   dispatch({ type: 'RESET_SIGN_ERROR' });
+};
+
+export const localStorageSignIn = (token) => {
+  const sessionData = [token, true];
+  return {
+    type: 'LOCAL_STORAGE_SIGN_IN',
+    payload: sessionData,
+  };
 };
