@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { signOut } from '../actions';
-import FooterIcons from './FooterIcons';
+import { FooterIcons } from './Icons';
 
 const SideBar = () => {
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
