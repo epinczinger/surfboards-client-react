@@ -1,12 +1,29 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Item from '../components/Item';
+import { createFavourite, deleteFavourite } from '../actions';
 
 const AccesoriesList = () => {
   const accesories = useSelector((state) => state.accesories);
+  const authToken = useSelector((state) => state.session[0]);
+  const dispatch = useDispatch();
+
+  const addFavourite = (id, type) => {
+    let kind;
+    if (type === 'accesories') kind = 'Accesory';
+    else if (type === 'surfboards') kind = 'Surfboard';
+    dispatch(createFavourite(authToken, id, kind));
+  };
+
+  const removeFavourite = (id, type) => {
+    let kind;
+    if (type === 'accesories') kind = 'Accesory';
+    else if (type === 'surfboards') kind = 'Surfboard';
+    dispatch(deleteFavourite(authToken, id, kind));
+  };
 
   const accesoriesList = accesories.map((a) => (
-    <div key={a.id}>
+    <div key={`${a.id}${a.kind}`}>
       <Item
         id={a.id}
         model={a.model}
@@ -14,7 +31,9 @@ const AccesoriesList = () => {
         price={a.price}
         description={a.description}
         img={a.image_url}
-        type="accesories"
+        type={a.kind}
+        addFavourite={addFavourite}
+        removeFavourite={removeFavourite}
       />
     </div>
   ));
