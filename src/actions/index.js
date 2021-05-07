@@ -46,7 +46,12 @@ export const getProducts = () => (dispatch) => {
     }));
 };
 
-export const createFavourite = (authToken, id) => (dispatch) => {
+export const createFavourite = (
+  authToken,
+  {
+    id, model, brand, price, img, category,
+  },
+) => (dispatch) => {
   axios({
     method: 'post',
     url: `${SERVER_URL}/favourites`,
@@ -60,10 +65,14 @@ export const createFavourite = (authToken, id) => (dispatch) => {
     },
   })
     .then((response) => {
-      dispatch({
-        type: 'CREATE_FAVOURITE',
-        payload: response.data,
-      });
+      if (response) {
+        dispatch({
+          type: 'CREATE_FAVOURITE',
+          payload: {
+            id, model, brand, price, img_url: img, category,
+          },
+        });
+      }
     })
     .catch((error) => dispatch({
       type: 'FAVOURITES_ERROR',
@@ -71,13 +80,17 @@ export const createFavourite = (authToken, id) => (dispatch) => {
     }));
 };
 
-export const deleteFavourite = (authToken, id, type) => (dispatch) => {
+export const deleteFavourite = (
+  authToken,
+  {
+    id, model, brand, price, img, category,
+  },
+) => (dispatch) => {
   axios({
     method: 'delete',
     url: `${SERVER_URL}/favourites`,
     data: {
-      id,
-      type,
+      product_id: id,
     },
     headers: {
       Accept: 'application/json',
@@ -86,11 +99,19 @@ export const deleteFavourite = (authToken, id, type) => (dispatch) => {
     },
   })
     .then((response) => {
-      console.log('from delete API response', id, type, response.data);
-      dispatch({
-        type: 'DELETE_FAVOURITE',
-        payload: response.data,
-      });
+      if (response) {
+        dispatch({
+          type: 'DELETE_FAVOURITE',
+          payload: {
+            id,
+            model,
+            brand,
+            price,
+            img_url: img,
+            category,
+          },
+        });
+      }
     })
     .catch((error) => dispatch({
       type: 'FAVOURITES_ERROR',
