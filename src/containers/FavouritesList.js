@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Item from '../components/Item';
-import { getFavourites, deleteFavourite } from '../actions';
+import { getFavourites } from '../actions';
 
 const FavouritesList = () => {
   const dispatch = useDispatch();
   const authToken = useSelector((state) => state.session[0]);
   const isLoggedIn = useSelector((state) => state.session[1]);
 
-  const removeFavourite = (id, type) => {
-    let kind;
-    if (type === 'accesories') kind = 'Accesory';
-    else if (type === 'surfboards') kind = 'Surfboard';
-    dispatch(deleteFavourite(authToken, id, kind));
-  };
+  // const removeFavourite = (id, type) => {
+  //   let kind;
+  //   if (type === 'accesories') kind = 'Accesory';
+  //   else if (type === 'surfboards') kind = 'Surfboard';
+  //   dispatch(deleteFavourite(authToken, id, kind));
+  // };
 
   let favouritesList;
   if (isLoggedIn) {
@@ -33,8 +33,8 @@ const FavouritesList = () => {
             price={f.price}
             description={f.description}
             img={f.image_url}
-            type={f.kind}
-            removeFavourite={removeFavourite}
+            category={f.category}
+            // removeFavourite={removeFavourite}
           />
         </div>
       ))
