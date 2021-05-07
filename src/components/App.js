@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { getProducts, localStorageSignIn } from '../actions';
+import { getProducts, localStorageSignIn, signIn } from '../actions';
 import SideBar from './SideBar';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
@@ -27,37 +27,19 @@ const App = () => {
   }, []);
 
   return (
-    <div className="App flex">
+    <div className="flex">
       <Router>
         <SideBar />
         <Switch>
-          <Route path="/surfboards/:id" exact>
-            <SurfboardDetails />
-          </Route>
-          <Route path="/accesories/:id" exact>
-            <AccesoryDetails />
-          </Route>
-          <Route path="/sign_up" exact>
-            <SignUp />
-          </Route>
-          <Route path="/sign_in" exact>
-            <SignIn />
-          </Route>
-          <Route path="/surfboards" exact>
-            <SurfboardsList />
-          </Route>
-          <Route path="/accesories" exact>
-            <AccesoriesList />
-          </Route>
-          <Route path="/favourites" exact>
-            <FavouritesList />
-          </Route>
-          <Route path="/lifestyle" exact>
-            <Lifestyle />
-          </Route>
-          <Route path="*">
-            <DefaultNotFound />
-          </Route>
+          <Route path="/surfboards/:id" exact component={SurfboardDetails} />
+          <Route path="/accesories/:id" exact component={AccesoryDetails} />
+          <Route path="/sign_up" exact component={SignUp} />
+          <Route path="/sign_in" exact component={SignIn} />
+          <Route path="/surfboards" exact component={SurfboardsList} />
+          <Route path="/accesories" exact component={AccesoriesList} />
+          <Route path="/favourites" exact component={FavouritesList} />
+          <Route path="/lifestyle" exact component={Lifestyle} />
+          <Route path="*" component={DefaultNotFound} />
         </Switch>
       </Router>
     </div>
