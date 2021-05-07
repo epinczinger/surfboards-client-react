@@ -1,27 +1,7 @@
 import axios from 'axios';
 
-const SERVER_URL = 'https://surfshop-api.herokuapp.com';
-
-export const getSurfboards = () => (dispatch) => {
-  axios({
-    method: 'get',
-    url: `${SERVER_URL}/surfboards`,
-    headers: {
-      Accept: 'application/json',
-      mode: 'cors',
-    },
-  })
-    .then((response) => {
-      dispatch({
-        type: 'GET_SURFBOARDS',
-        payload: response.data,
-      });
-    })
-    .catch((error) => dispatch({
-      type: 'GET_SURFBOARDS_ERROR',
-      payload: error,
-    }));
-};
+// const SERVER_URL = 'https://surfshop-api.herokuapp.com';
+const SERVER_URL = 'http://localhost:3000';
 
 export const getFavourites = (authToken) => (dispatch) => {
   axios({
@@ -45,10 +25,10 @@ export const getFavourites = (authToken) => (dispatch) => {
     }));
 };
 
-export const getAccesories = () => (dispatch) => {
+export const getProducts = () => (dispatch) => {
   axios({
     method: 'get',
-    url: `${SERVER_URL}/accesories`,
+    url: `${SERVER_URL}/products`,
     headers: {
       Accept: 'application/json',
       mode: 'cors',
@@ -56,12 +36,64 @@ export const getAccesories = () => (dispatch) => {
   })
     .then((response) => {
       dispatch({
-        type: 'GET_ACCESORIES',
+        type: 'GET_PRODUCTS',
         payload: response.data,
       });
     })
     .catch((error) => dispatch({
-      type: 'GET_ACCESORIES_ERROR',
+      type: 'GET_PRODUCTS_ERROR',
+      payload: error,
+    }));
+};
+
+export const createFavourite = (authToken, id) => (dispatch) => {
+  axios({
+    method: 'post',
+    url: `${SERVER_URL}/favourites`,
+    data: {
+      product_id: id,
+    },
+    headers: {
+      Accept: 'application/json',
+      mode: 'cors',
+      Authorization: authToken,
+    },
+  })
+    .then((response) => {
+      dispatch({
+        type: 'CREATE_FAVOURITE',
+        payload: response.data,
+      });
+    })
+    .catch((error) => dispatch({
+      type: 'FAVOURITES_ERROR',
+      payload: error,
+    }));
+};
+
+export const deleteFavourite = (authToken, id, type) => (dispatch) => {
+  axios({
+    method: 'delete',
+    url: `${SERVER_URL}/favourites`,
+    data: {
+      id,
+      type,
+    },
+    headers: {
+      Accept: 'application/json',
+      mode: 'cors',
+      Authorization: authToken,
+    },
+  })
+    .then((response) => {
+      console.log('from delete API response', id, type, response.data);
+      dispatch({
+        type: 'DELETE_FAVOURITE',
+        payload: response.data,
+      });
+    })
+    .catch((error) => dispatch({
+      type: 'FAVOURITES_ERROR',
       payload: error,
     }));
 };

@@ -1,13 +1,11 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import surfboardsReducer from './surfboards';
-import accesoriesReducer from './accesories';
+import productsReducer from './products';
 import sessionReducer from './sessions';
 import favouritesReducer from './favourites';
 
 const rootReducer = combineReducers({
-  accesories: accesoriesReducer,
-  surfboards: surfboardsReducer,
+  products: productsReducer,
   session: sessionReducer,
   favourites: favouritesReducer,
 });
