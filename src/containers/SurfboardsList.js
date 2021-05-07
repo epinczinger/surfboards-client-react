@@ -30,7 +30,7 @@ const SurfboardsList = () => {
         price={s.price}
         description={s.description}
         img={s.image_url}
-        type={s.kind}
+        category={s.category}
         // addFavourite={addFavourite}
         // removeFavourite={removeFavourite}
       />

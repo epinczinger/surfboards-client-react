@@ -23,7 +23,7 @@ const AccesoriesList = () => {
   // };
 
   const accesoriesList = accesories.map((a) => (
-    <div key={`${a.id}${a.kind}`}>
+    <div key={`${a.id}${a.category}`}>
       <Item
         id={a.id}
         model={a.model}
@@ -31,7 +31,7 @@ const AccesoriesList = () => {
         price={a.price}
         description={a.description}
         img={a.image_url}
-        type={a.kind}
+        category={a.category}
         // addFavourite={addFavourite}
         // removeFavourite={removeFavourite}
       />

@@ -9,7 +9,7 @@ const Item = ({
   brand,
   price,
   img,
-  type,
+  category,
   addFavourite,
   removeFavourite,
 }) => (
@@ -18,25 +18,23 @@ const Item = ({
       <img
         className="himglist object-cover py-4 mx-auto"
         src={img}
-        alt={type}
+        alt={category}
       />
     </div>
     <div className="py-5 px-2 sm:ml-4 shadow-lg">
       <div className="font-semibold bg-gray-200 p-2 flex justify-between">
         <div className="p-2 uppercase text-lg">{model}</div>
-        <div>
-          <div className="p-2 border text-blue-400">
-            <Link to="//">Details</Link>
-          </div>
-          <div>
-            <button type="button" onClick={() => addFavourite(id, type)}>
+        <div className="flex">
+          <div className="text-red-500 p-2">
+            <button type="button" onClick={() => addFavourite(id)}>
               <Heart />
             </button>
-          </div>
-          <div>
-            <button type="button" onClick={() => removeFavourite(id, type)}>
+            <button type="button" onClick={() => removeFavourite(id)}>
               <HeartFull />
             </button>
+          </div>
+          <div className="p-2 border text-blue-400">
+            <Link to={`/${category}/${id}`}>Details</Link>
           </div>
         </div>
       </div>
@@ -75,7 +73,7 @@ Item.defaultProps = {
   price: '',
   brand: '',
   img: '',
-  type: '',
+  category: '',
   addFavourite: () => {},
   removeFavourite: () => {},
 };
@@ -86,7 +84,7 @@ Item.propTypes = {
   price: PropTypes.string,
   img: PropTypes.string,
   brand: PropTypes.string,
-  type: PropTypes.string,
+  category: PropTypes.string,
   addFavourite: PropTypes.func,
   removeFavourite: PropTypes.func,
 };
