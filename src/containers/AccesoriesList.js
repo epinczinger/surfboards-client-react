@@ -1,26 +1,26 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Item from '../components/Item';
-import { createFavourite, deleteFavourite } from '../actions';
+// import { createFavourite, deleteFavourite } from '../actions';
 
 const AccesoriesList = () => {
-  const accesories = useSelector((state) => state.accesories);
-  const authToken = useSelector((state) => state.session[0]);
-  const dispatch = useDispatch();
+  const accesories = useSelector((state) => state.products[0]);
+  // const authToken = useSelector((state) => state.session[0]);
+  // const dispatch = useDispatch();
 
-  const addFavourite = (id, type) => {
-    let kind;
-    if (type === 'accesories') kind = 'Accesory';
-    else if (type === 'surfboards') kind = 'Surfboard';
-    dispatch(createFavourite(authToken, id, kind));
-  };
+  // const addFavourite = (id, type) => {
+  //   let kind;
+  //   if (type === 'accesories') kind = 'Accesory';
+  //   else if (type === 'surfboards') kind = 'Surfboard';
+  //   dispatch(createFavourite(authToken, id, kind));
+  // };
 
-  const removeFavourite = (id, type) => {
-    let kind;
-    if (type === 'accesories') kind = 'Accesory';
-    else if (type === 'surfboards') kind = 'Surfboard';
-    dispatch(deleteFavourite(authToken, id, kind));
-  };
+  // const removeFavourite = (id, type) => {
+  //   let kind;
+  //   if (type === 'accesories') kind = 'Accesory';
+  //   else if (type === 'surfboards') kind = 'Surfboard';
+  //   dispatch(deleteFavourite(authToken, id, kind));
+  // };
 
   const accesoriesList = accesories.map((a) => (
     <div key={`${a.id}${a.kind}`}>
@@ -32,8 +32,8 @@ const AccesoriesList = () => {
         description={a.description}
         img={a.image_url}
         type={a.kind}
-        addFavourite={addFavourite}
-        removeFavourite={removeFavourite}
+        // addFavourite={addFavourite}
+        // removeFavourite={removeFavourite}
       />
     </div>
   ));

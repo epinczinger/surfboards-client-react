@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { getAccesories, getSurfboards, localStorageSignIn } from '../actions';
+import { getProducts, localStorageSignIn } from '../actions';
 import SideBar from './SideBar';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
@@ -18,8 +18,7 @@ const App = () => {
   const isLoggedIn = useSelector((state) => state.session[1]);
 
   useEffect(() => {
-    dispatch(getSurfboards());
-    dispatch(getAccesories());
+    dispatch(getProducts());
     if (window.localStorage.getItem('sessionID') && !isLoggedIn) {
       dispatch(
         localStorageSignIn(window.localStorage.getItem('sessionID')),

@@ -1,9 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Heart, HeartFull } from './Icons';
 
 const Item = ({
-  id, model, brand, price, img, type,
+  id,
+  model,
+  brand,
+  price,
+  img,
+  type,
+  addFavourite,
+  removeFavourite,
 }) => (
   <div id={id} className="flex-col m-2">
     <div className="py-5 px-2 sm:ml-4 shadow-lg">
@@ -16,8 +24,20 @@ const Item = ({
     <div className="py-5 px-2 sm:ml-4 shadow-lg">
       <div className="font-semibold bg-gray-200 p-2 flex justify-between">
         <div className="p-2 uppercase text-lg">{model}</div>
-        <div className="p-2 border text-blue-400">
-          <Link to={`/${type}/${id}`}>Details</Link>
+        <div>
+          <div className="p-2 border text-blue-400">
+            <Link to="//">Details</Link>
+          </div>
+          <div>
+            <button type="button" onClick={() => addFavourite(id, type)}>
+              <Heart />
+            </button>
+          </div>
+          <div>
+            <button type="button" onClick={() => removeFavourite(id, type)}>
+              <HeartFull />
+            </button>
+          </div>
         </div>
       </div>
       <div className="mt-2 text-gray-800 p-2">
@@ -56,6 +76,8 @@ Item.defaultProps = {
   brand: '',
   img: '',
   type: '',
+  addFavourite: () => {},
+  removeFavourite: () => {},
 };
 
 Item.propTypes = {
@@ -65,4 +87,6 @@ Item.propTypes = {
   img: PropTypes.string,
   brand: PropTypes.string,
   type: PropTypes.string,
+  addFavourite: PropTypes.func,
+  removeFavourite: PropTypes.func,
 };
