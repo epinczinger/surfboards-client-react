@@ -1,27 +1,33 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Item from '../components/Item';
-import { getFavourites } from '../actions';
+import { getFavourites, deleteFavourite } from '../actions';
 
 const FavouritesList = () => {
   const dispatch = useDispatch();
   const authToken = useSelector((state) => state.session[0]);
   const isLoggedIn = useSelector((state) => state.session[1]);
-
-  // const removeFavourite = (id, type) => {
-  //   let kind;
-  //   if (type === 'accesories') kind = 'Accesory';
-  //   else if (type === 'surfboards') kind = 'Surfboard';
-  //   dispatch(deleteFavourite(authToken, id, kind));
-  // };
+  const favourites = useSelector((state) => state.favourites);
 
   let favouritesList;
   if (isLoggedIn) {
     useEffect(() => {
       dispatch(getFavourites(authToken));
     }, []);
-
-    const favourites = useSelector((state) => state.favourites);
+    const removeFavourite = ({
+      id, model, brand, price, img, category,
+    }) => {
+      dispatch(
+        deleteFavourite(authToken, {
+          id,
+          model,
+          brand,
+          price,
+          img,
+          category,
+        }),
+      );
+    };
 
     favouritesList = favourites !== []
       ? favourites.map((f) => (
@@ -34,7 +40,7 @@ const FavouritesList = () => {
             description={f.description}
             img={f.image_url}
             category={f.category}
-            // removeFavourite={removeFavourite}
+            removeFavourite={removeFavourite}
           />
         </div>
       ))
