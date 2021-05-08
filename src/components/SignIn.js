@@ -4,7 +4,7 @@ import { Redirect, Link } from 'react-router-dom';
 import validator from 'validator';
 import { signIn, resetError } from '../actions';
 
-const LogIn = () => {
+const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const isLoggedIn = useSelector((state) => state.session[1]);
@@ -94,4 +94,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default SignIn;

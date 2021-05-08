@@ -7,7 +7,6 @@ const SurfboardDetails = () => {
   const params = useParams();
   const thisSurfboard = surfboards.filter((s) => s.id.toString() === params.id)[0];
 
-  console.log(thisSurfboard);
   const {
     model, brand, price, description,
   } = thisSurfboard;

@@ -5,10 +5,10 @@ import Item from '../components/Item';
 import { createFavourite, deleteFavourite } from '../actions';
 
 const ItemList = () => {
+  const dispatch = useDispatch();
   const surfboards = useSelector((state) => state.products[1]);
   const accesories = useSelector((state) => state.products[0]);
   const authToken = useSelector((state) => state.session[0]);
-  const dispatch = useDispatch();
 
   const addFavourite = ({
     id, model, brand, price, img, category,
@@ -57,7 +57,7 @@ const ItemList = () => {
   ));
 
   const surfboardsList = surfboards.map((s) => (
-    <div key={`${s.id}${s.kind}`}>
+    <div key={`${s.id}${s.category}`}>
       <Item
         id={s.id}
         model={s.model}
