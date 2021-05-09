@@ -5,6 +5,7 @@ import { getProducts, localStorageSignIn } from '../actions';
 import SideBar from './SideBar';
 import SignUp from './SignUp';
 import SignIn from './SignIn';
+import Home from './Home';
 import SurfboardDetails from './SurfboardDetails';
 import AccesoryDetails from './AccesoryDetails';
 import ItemList from '../containers/ItemList';
@@ -28,6 +29,7 @@ const App = () => {
       <Router>
         <SideBar />
         <Switch>
+          <Route path="/" exact component={Home} />
           <Route path="/surfboards/:id" exact component={SurfboardDetails} />
           <Route path="/accesories/:id" exact component={AccesoryDetails} />
           <Route path="/sign_up" exact component={SignUp} />
