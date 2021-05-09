@@ -59,7 +59,7 @@ const SideBar = () => {
     <>
       {!isLoggedIn && (
         <div className="flex justify-center text-sm text-gray-600 p-3">
-          <div className="hover:text-blue-400">
+          <div className="hover:text-blue-400 transform hover:scale-110">
             <Link
               onClick={() => setToggleMobileMenu(false)}
               to="/sign_in"
@@ -68,7 +68,7 @@ const SideBar = () => {
               Sign In
             </Link>
           </div>
-          <div className="hover:text-blue-400">
+          <div className="hover:text-blue-400 transform hover:scale-110">
             <Link
               onClick={() => setToggleMobileMenu(false)}
               to="/sign_up"

@@ -24,7 +24,6 @@ const Item = ({
   }, []);
 
   return (
-
     <div id={id} className="flex-col m-2">
       <div className="py-5 px-2 sm:ml-4 shadow-lg">
         <img
@@ -38,45 +37,45 @@ const Item = ({
           <div className="p-2 uppercase text-lg">{model}</div>
           <div className="flex">
             <div className="text-red-500 p-2">
-              {!isFavourite
-                ? (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setisFavourite(true);
-                      addFavourite({
-                        id,
-                        model,
-                        brand,
-                        price,
-                        img,
-                        category,
-                      });
-                    }}
-                  >
-                    <Heart />
-                  </button>
-                )
-                : (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setisFavourite(false);
-                      removeFavourite({
-                        id,
-                        model,
-                        brand,
-                        price,
-                        img,
-                        category,
-                      });
-                    }}
-                  >
-                    <HeartFull />
-                  </button>
-                )}
+              {!isFavourite ? (
+                <button
+                  className="transform hover:scale-125"
+                  type="button"
+                  onClick={() => {
+                    setisFavourite(true);
+                    addFavourite({
+                      id,
+                      model,
+                      brand,
+                      price,
+                      img,
+                      category,
+                    });
+                  }}
+                >
+                  <Heart />
+                </button>
+              ) : (
+                <button
+                  className="transform hover:scale-125"
+                  type="button"
+                  onClick={() => {
+                    setisFavourite(false);
+                    removeFavourite({
+                      id,
+                      model,
+                      brand,
+                      price,
+                      img,
+                      category,
+                    });
+                  }}
+                >
+                  <HeartFull />
+                </button>
+              )}
             </div>
-            <div className="p-2 border text-blue-400">
+            <div className="p-2 border text-blue-400 transform hover:scale-110">
               <Link to={`/${category}/${id}`}>Details</Link>
             </div>
           </div>

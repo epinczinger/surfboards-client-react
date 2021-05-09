@@ -8,7 +8,7 @@ const Home = () => (
     </div>
     <div className="sm:flex sm:my-2 justify-around">
       <img
-        className="himg w-50 object-cover py-4"
+        className="himg w-50 object-cover"
         src="https://cdn.pixabay.com/photo/2016/03/09/15/16/wave-1246560_960_720.jpg"
         alt="surfboard"
       />

@@ -5,7 +5,7 @@ export const FooterIcons = () => (
     <div className="p-4 flex text-lg items-center justify-around">
       <a
         href="mailto:epinczinger@gmail.com"
-        className="hover:text-blue-400"
+        className="transition hover:text-blue-400 duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
       >
         <svg
           version="1.1"
@@ -22,7 +22,7 @@ export const FooterIcons = () => (
       </a>
       <a
         href="https://www.github.com/epinczinger"
-        className="hover:text-blue-400"
+        className="transition hover:text-blue-400 duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ export const FooterIcons = () => (
       </a>
       <a
         href="https://www.linkedin.com/in/esteban-pinczinger"
-        className="hover:text-blue-400"
+        className="transition hover:text-blue-400 duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
       >
         <svg
           width="21"
