@@ -17,15 +17,12 @@ const Item = ({
   const [isFavourite, setisFavourite] = useState(false);
   const favourites = useSelector((state) => state.favourites);
 
-  const checkFav = () => {
+  useEffect(() => {
     if (favourites.filter((fav) => parseInt(fav.id, 10) === parseInt(id, 10)).length === 1) {
       setisFavourite(true);
     }
-  };
-
-  useEffect(() => {
-    checkFav();
   }, []);
+
   return (
 
     <div id={id} className="flex-col m-2">

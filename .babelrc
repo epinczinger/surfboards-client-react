@@ -1,6 +1,6 @@
 {
   "presets": [
-      "@babel/preset-react"
-  ],
-  "plugins": ["@babel/plugin-syntax-jsx"]
+    "@babel/react",
+    "@babel/env"
+  ]
 }
