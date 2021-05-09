@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { getProducts, localStorageSignIn } from '../actions';
 import SideBar from './SideBar';
-import SignUp from './SignUp';
-import SignIn from './SignIn';
+import SignUp from '../forms/SignUp';
+import SignIn from '../forms/SignIn';
 import Home from './Home';
 import SurfboardDetails from './SurfboardDetails';
 import AccesoryDetails from './AccesoryDetails';
 import ItemList from '../containers/ItemList';
 import FavouritesList from '../containers/FavouritesList';
-import DefaultNotFound from '../containers/DefaultNotFound';
-import Lifestyle from '../containers/Lifestyle';
+import DefaultNotFound from './DefaultNotFound';
+import Lifestyle from './Lifestyle';
 
 const App = () => {
   const dispatch = useDispatch();
