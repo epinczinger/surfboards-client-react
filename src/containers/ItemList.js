@@ -6,6 +6,7 @@ import { createFavourite, deleteFavourite } from '../actions';
 
 const ItemList = () => {
   const dispatch = useDispatch();
+  const { path } = useRouteMatch();
   const surfboards = useSelector((state) => state.products[1]);
   const accesories = useSelector((state) => state.products[0]);
   const authToken = useSelector((state) => state.session[0]);
@@ -71,11 +72,12 @@ const ItemList = () => {
       />
     </div>
   ));
+
   let itemList;
-  if (useRouteMatch('/surfboards')) {
-    itemList = surfboardsList;
-  } else if (useRouteMatch('/accesories')) {
+  if (path === '/accesories') {
     itemList = accesoriesList;
+  } else if (path === '/surfboards') {
+    itemList = surfboardsList;
   }
 
   return (
