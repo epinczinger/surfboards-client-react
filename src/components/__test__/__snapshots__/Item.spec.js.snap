@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Item component renders as expected matching snapshot 1`] = `
+<div
+  className="flex-col m-2"
+  id=""
+>
+  <div
+    className="py-5 px-2 sm:ml-4 shadow-lg"
+  >
+    <img
+      alt=""
+      className="himglist object-cover py-4 mx-auto"
+      src=""
+    />
+  </div>
+  <div
+    className="py-5 px-2 sm:ml-4 shadow-lg"
+  >
+    <div
+      className="font-semibold bg-gray-200 p-2 flex justify-between"
+    >
+      <div
+        className="p-2 uppercase text-lg"
+      >
+        
+      </div>
+      <div
+        className="flex"
+      >
+        <div
+          className="text-red-500 p-2"
+        >
+          <button
+            className="transform hover:scale-125"
+            onClick={[Function]}
+            type="button"
+          >
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          className="p-2 border text-blue-400 transform hover:scale-110"
+        >
+          <a
+            href="//"
+            onClick={[Function]}
+          >
+            Details
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      className="mt-2 text-gray-800 p-2"
+    >
+      <span
+        className="font-semibold"
+      >
+        Material: 
+      </span>
+       
+      Foam
+    </div>
+    <div
+      className="mt-2 text-gray-800 bg-gray-200 p-2"
+    >
+      <p
+        className="font-semibold"
+      >
+        Brand:
+        <span
+          className="font-normal"
+        >
+          
+        </span>
+      </p>
+    </div>
+    <div
+      className="mt-2 text-gray-800 p-2"
+    >
+      <p
+        className="font-semibold"
+      >
+        Price: $
+        <span
+          className="font-normal"
+        >
+          
+        </span>
+      </p>
+    </div>
+    <div
+      className="mt-2 text-gray-800 bg-gray-200 p-2"
+    >
+      <p
+        className="font-semibold"
+      >
+        Shipping:
+        <span
+          className="font-normal"
+        >
+           Yes
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+`;
