@@ -11,8 +11,8 @@ The application features include:
 - A Redux store from where all states are managed.
 
 
-![screenshot](https://i.imgur.com/I4l0pck.mp4)
-![screenshot](https://i.imgur.com/7kU3Aho.mp4)
+![screenshot](https://imgur.com/a/gO6T5QZ.gif)
+![screenshot](https://imgur.com/7kU3Aho.gif)
 
 ## Live Link
 
