@@ -5,11 +5,11 @@
 /* stylelint-enable */
 
 .himg {
-    min-height: 400px;
-    max-height: 550px;
+  min-height: 400px;
+  max-height: 550px;
 }
 
 .himglist {
-    min-height: 350px;
-    max-height: 350px;
+  min-height: 350px;
+  max-height: 350px;
 }
