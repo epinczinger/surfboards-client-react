@@ -145,7 +145,7 @@ export const signIn = (email, password) => (dispatch) => {
     })
     .catch((error) => {
       if (error.message === 'Request failed with status code 422') {
-        dispatch({ type: 'SIGN_ERROR', payload: 'Account already exists..' });
+        dispatch({ type: 'SIGN_ERROR', payload: 'There is a problem with your email/password.' });
       }
     });
 };
