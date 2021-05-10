@@ -8,6 +8,7 @@ const sessionReducer = (
     case 'SIGN_IN_UP':
       return [action.payload, true, ''];
     case 'SIGN_OUT':
+      window.localStorage.clear();
       return ['', false, ''];
     case 'SIGN_ERROR':
       return ['', false, action.payload];

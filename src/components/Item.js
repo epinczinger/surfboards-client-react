@@ -14,6 +14,7 @@ const Item = ({
   addFavourite,
   removeFavourite,
 }) => {
+  const isLoggedIn = useSelector((state) => state.session[1]);
   const [isFavourite, setisFavourite] = useState(false);
   const favourites = useSelector((state) => state.favourites);
 
@@ -36,6 +37,7 @@ const Item = ({
         <div className="font-semibold bg-gray-200 p-2 flex justify-between">
           <div className="p-2 uppercase text-lg">{model}</div>
           <div className="flex">
+            {isLoggedIn && (
             <div className="text-red-500 p-2">
               {!isFavourite ? (
                 <button
@@ -75,6 +77,7 @@ const Item = ({
                 </button>
               )}
             </div>
+            )}
             <div className="p-2 border text-blue-400 transform hover:scale-110">
               <Link to={`/${category}/${id}`}>Details</Link>
             </div>

@@ -189,13 +189,10 @@ export const signOut = (authToken) => (dispatch) => {
       Accept: 'application/json',
       Authorization: authToken,
     },
-  }).then((response) => {
-    if (response) {
-      window.localStorage.clear();
-      dispatch({
-        type: 'SIGN_OUT',
-      });
-    }
+  }).then(() => {
+    dispatch({
+      type: 'SIGN_OUT',
+    });
   }).catch((error) => dispatch({ type: 'SIGN_ERROR', payload: error }));
 };
 
