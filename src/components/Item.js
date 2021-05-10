@@ -78,7 +78,7 @@ const Item = ({
               )}
             </div>
             )}
-            <div className="p-2 border text-blue-400 transform hover:scale-110">
+            <div className="p-2 border text-blue-400">
               <Link to={`/${category}/${id}`}>Details</Link>
             </div>
           </div>
