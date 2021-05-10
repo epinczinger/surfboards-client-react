@@ -29,7 +29,7 @@ exports[`The Item component renders as expected matching snapshot 1`] = `
         className="flex"
       >
         <div
-          className="p-2 border text-blue-400 transform hover:scale-110"
+          className="p-2 border text-blue-400"
         >
           <a
             href="//"
