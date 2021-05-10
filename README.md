@@ -18,6 +18,10 @@ The application features include:
 
 Have a look at the [Live Link](https://surfshop-rails-react.netlify.app/)
 
+## Video explanation
+
+[Code Presentation](https://youtu.be/voAlJhDQhrE)
+
 ## Built With
 
 - JavaScript
