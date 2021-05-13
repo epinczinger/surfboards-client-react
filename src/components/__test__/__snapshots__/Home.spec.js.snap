@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Home component renders as expected matching snapshot 1`] = `
+<div
+  className="w-fullbg-white font-semibold min-h-screen shadow-md py-5 sm:mx-auto overflow-hidden flex flex-col justify-around"
+>
+  <div
+    className="text-3xl text-gray-800 text-center"
+  >
+    <h1>
+      Waves, waves waves.
+    </h1>
+  </div>
+  <div
+    className="sm:flex sm:my-2 justify-around"
+  >
+    <img
+      alt="surfboard"
+      className="himg w-50 object-cover"
+      src="https://cdn.pixabay.com/photo/2016/03/09/15/16/wave-1246560_960_720.jpg"
+    />
+  </div>
+  <div
+    className="text-3xl text-gray-800 text-center"
+  >
+    <h1>
+      Everyone wants to be there, but first you need some
+      <a
+        className="text-blue-500"
+        href="/surfboards"
+        onClick={[Function]}
+      >
+         
+        Equipment
+      </a>
+    </h1>
+  </div>
+</div>
+`;
