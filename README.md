@@ -70,6 +70,7 @@ To check all the tests you should run on the root folder:
 
 - Github: [epinczinger](https://github.com/epinczinger)
 - LinkedIn: [Esteban Pinczinger](https://www.linkedin.com/in/esteban-pinczinger)
+- Twitter: [@breakingcode1](https://www.twitter.com/breakingcode1)
 
 ## 🤝 Contributing
 
