@@ -1,17 +1,19 @@
+const initialState = { token: '', isLogged: false, error: '' };
+
 const sessionReducer = (
-  state = ['', false, ''],
+  state = initialState,
   action,
 ) => {
   switch (action.type) {
     case 'RESET_SIGN_ERROR':
-      return ['', false, ''];
+      return initialState;
     case 'SIGN_IN_UP':
-      return [action.payload, true, ''];
+      return { token: action.payload, isLogged: true, error: '' };
     case 'SIGN_OUT':
       window.localStorage.clear();
-      return ['', false, ''];
+      return initialState;
     case 'SIGN_ERROR':
-      return ['', false, action.payload];
+      return { token: '', isLogged: false, error: action.payload };
     case 'LOCAL_STORAGE_SIGN_IN':
       return action.payload;
     default:

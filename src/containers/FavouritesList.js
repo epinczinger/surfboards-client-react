@@ -5,8 +5,8 @@ import { getFavourites, deleteFavourite } from '../actions';
 
 const FavouritesList = () => {
   const dispatch = useDispatch();
-  const authToken = useSelector((state) => state.session[0]);
-  const isLoggedIn = useSelector((state) => state.session[1]);
+  const authToken = useSelector((state) => state.session.token);
+  const isLoggedIn = useSelector((state) => state.session.isLogged);
   const favourites = useSelector((state) => state.favourites);
 
   let favouritesList;

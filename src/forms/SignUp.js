@@ -9,8 +9,8 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.session[1]);
-  const error = useSelector((state) => state.session[2]);
+  const isLoggedIn = useSelector((state) => state.session.isLogged);
+  const error = useSelector((state) => state.session.error);
 
   const checkPasswordMatch = () => password === passwordConfirmation;
 

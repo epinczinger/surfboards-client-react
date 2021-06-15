@@ -12,10 +12,11 @@ import ItemList from '../containers/ItemList';
 import FavouritesList from '../containers/FavouritesList';
 import DefaultNotFound from './DefaultNotFound';
 import Lifestyle from './Lifestyle';
+import AddItem from './AddItem';
 
 const App = () => {
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.session[1]);
+  const isLoggedIn = useSelector((state) => state.session.isLogged);
 
   useEffect(() => {
     dispatch(getProducts());
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="/sign_in" exact component={SignIn} />
           <Route path="/surfboards" exact component={ItemList} />
           <Route path="/accesories" exact component={ItemList} />
+          <Route path="/additem" exact component={AddItem} />
           <Route path="/favourites" exact component={FavouritesList} />
           <Route path="/lifestyle" exact component={Lifestyle} />
           <Route path="*" component={DefaultNotFound} />

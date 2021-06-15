@@ -14,7 +14,7 @@ const Item = ({
   addFavourite,
   removeFavourite,
 }) => {
-  const isLoggedIn = useSelector((state) => state.session[1]);
+  const isLoggedIn = useSelector((state) => state.session.isLogged);
   const [isFavourite, setisFavourite] = useState(false);
   const favourites = useSelector((state) => state.favourites);
 

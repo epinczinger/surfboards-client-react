@@ -9,7 +9,7 @@ const ItemList = () => {
   const { path } = useRouteMatch();
   const surfboards = useSelector((state) => state.products[1]);
   const accesories = useSelector((state) => state.products[0]);
-  const authToken = useSelector((state) => state.session[0]);
+  const authToken = useSelector((state) => state.session.token);
 
   const addFavourite = ({
     id, model, brand, price, img, category,

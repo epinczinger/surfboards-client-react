@@ -6,8 +6,8 @@ import { FooterIcons } from './Icons';
 
 const SideBar = () => {
   const [toggleMobileMenu, setToggleMobileMenu] = useState(false);
-  const authToken = useSelector((state) => state.session[0]);
-  const isLoggedIn = useSelector((state) => state.session[1]);
+  const authToken = useSelector((state) => state.session.token);
+  const isLoggedIn = useSelector((state) => state.session.isLogged);
   const dispatch = useDispatch();
 
   const handleToggleMobileMenu = () => {
@@ -50,6 +50,15 @@ const SideBar = () => {
           className=""
         >
           Favourites
+        </Link>
+      </div>
+      <div className="hover:bg-blue-300 p-3 hover:text-gray-100">
+        <Link
+          onClick={() => setToggleMobileMenu(false)}
+          to="/additem"
+          className=""
+        >
+          Add Item
         </Link>
       </div>
     </>

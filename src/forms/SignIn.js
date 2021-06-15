@@ -7,8 +7,8 @@ import { signIn, resetError } from '../actions';
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const isLoggedIn = useSelector((state) => state.session[1]);
-  const error = useSelector((state) => state.session[2]);
+  const isLoggedIn = useSelector((state) => state.session.isLogged);
+  const error = useSelector((state) => state.session.error);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
