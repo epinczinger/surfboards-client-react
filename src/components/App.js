@@ -12,7 +12,7 @@ import ItemList from '../containers/ItemList';
 import FavouritesList from '../containers/FavouritesList';
 import DefaultNotFound from './DefaultNotFound';
 import Lifestyle from './Lifestyle';
-import AddItem from './AddItem';
+import AddItem from '../forms/AddItem';
 
 const App = () => {
   const dispatch = useDispatch();
