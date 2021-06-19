@@ -26,14 +26,14 @@ const Item = ({
 
   return (
     <div id={id} className="flex-col m-2">
-      <div className="py-5 px-2 sm:ml-4 shadow-lg">
+      <div className="py-5 px-2 shadow-lg">
         <img
           className="himglist object-cover py-4 mx-auto"
           src={img}
           alt={category}
         />
       </div>
-      <div className="py-5 px-2 sm:ml-4 shadow-lg">
+      <div className="py-5 px-2 shadow-lg">
         <div className="font-semibold bg-gray-200 p-2 flex justify-between">
           <div className="p-2 uppercase text-lg">{model}</div>
           <div className="flex">
