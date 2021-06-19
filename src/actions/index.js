@@ -213,7 +213,7 @@ export const localStorageSignIn = (token) => {
     payload: sessionData,
   };
 };
-//need to finish it after do it on API
+// need to finish it after do it on API
 export const addProduct = () => (dispatch) => {
   axios({
     method: 'post',
