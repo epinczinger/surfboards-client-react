@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 
 const AccesoryDetails = () => {
-  const accesories = useSelector((state) => state.products[0]);
+  const accesories = useSelector((state) => state.products.accesories);
   const params = useParams();
   const thisAccesory = accesories.filter(
     (a) => a.id.toString() === params.id,

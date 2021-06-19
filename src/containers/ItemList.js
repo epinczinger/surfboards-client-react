@@ -8,8 +8,8 @@ import Filter from '../components/Filter';
 const ItemList = () => {
   const dispatch = useDispatch();
   const { path } = useRouteMatch();
-  const surfboards = useSelector((state) => state.products[1]) || [];
-  const accesories = useSelector((state) => state.products[0]) || [];
+  const surfboards = useSelector((state) => state.products.surfboards) || [];
+  const accesories = useSelector((state) => state.products.accesories) || [];
   const authToken = useSelector((state) => state.session.token);
   const [filterValue, setFilterValue] = useState('');
 

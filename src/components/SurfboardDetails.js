@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 
 const SurfboardDetails = () => {
-  const surfboards = useSelector((state) => state.products[1]);
+  const surfboards = useSelector((state) => state.products.surfboards);
   const params = useParams();
   const thisSurfboard = surfboards.filter((s) => s.id.toString() === params.id)[0];
 

@@ -1,4 +1,4 @@
-const productsReducer = (state = [], action) => {
+const productsReducer = (state = { surfboards: [], accesories: [] }, action) => {
   switch (action.type) {
     case 'GET_PRODUCTS': {
       const accesories = [];
@@ -9,8 +9,9 @@ const productsReducer = (state = [], action) => {
         }
         return surfboards.push(product);
       });
-      return [accesories, surfboards]; }
-    case 'GET_PRODUCTS_ERROR':
+      return { accesories, surfboards };
+    }
+    case 'PRODUCT_ERROR':
       return action.payload;
     default:
       return state;
