@@ -36,7 +36,10 @@ const AccesoryDetails = () => {
             <div className="mt-2 text-gray-800 bg-gray-200 p-2">
               <p className="font-semibold">
                 Brand:
-                <span className="font-normal">{brand}</span>
+                <span className="font-normal">
+                  {' '}
+                  {brand}
+                </span>
               </p>
             </div>
             <div className="mt-2 text-gray-800 p-2">

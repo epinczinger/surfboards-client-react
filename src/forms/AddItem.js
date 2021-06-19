@@ -1,15 +1,34 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../actions';
 
 const AddItem = () => {
   const [category, setCategory] = useState('accesories');
   const [article, setArticle] = useState('');
   const [shipping, setShipping] = useState('yes');
   const [price, setPrice] = useState(0);
-  const [material, setMaterial] = useState('');
+  const [description, setDescription] = useState('');
   const [brand, setBrand] = useState('');
   const [imgUrl, setImgUrl] = useState('');
+  const dispatch = useDispatch();
 
-  const handleSubmit = () => {};
+  const handleSubmit = (event) => {
+    dispatch(
+      addProduct({
+        category,
+        article,
+        shipping,
+        price,
+        brand,
+        img_url: imgUrl,
+        description,
+      }),
+    );
+    event.preventDefault();
+    alert(
+      'Only Admins are allowed to add Items. Ask for credentials. This is visible only for the purpose of showing the admin features.',
+    );
+  };
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -17,8 +36,6 @@ const AddItem = () => {
       setCategory(value);
     } else if (name === 'article') {
       setArticle(value);
-    } else if (name === 'material') {
-      setMaterial(value);
     } else if (name === 'brand') {
       setBrand(value);
     } else if (name === 'price') {
@@ -27,6 +44,8 @@ const AddItem = () => {
       setShipping(value);
     } else if (name === 'imgUrl') {
       setImgUrl(value);
+    } else if (name === 'description') {
+      setDescription(value);
     }
   };
 
@@ -46,7 +65,7 @@ const AddItem = () => {
             value={category}
             onChange={handleChange}
             id="form-category"
-            className="mt-2 h-11 text-lg shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="mt-2 bg-white h-11 text-lg shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           >
             <option value="accesories">Accesories</option>
             <option value="surfboards">Surfboards</option>
@@ -64,20 +83,6 @@ const AddItem = () => {
             className="mt-2 h-11 text-lg shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             id="form-article"
-          />
-        </label>
-        <label
-          htmlFor="form-material"
-          className="pb-2 block text-gray-700 font-bold mb-2"
-        >
-          Material
-          <input
-            name="material"
-            value={material}
-            onChange={handleChange}
-            className="mt-2 h-11 text-lg shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="text"
-            id="form-material"
           />
         </label>
         <label
@@ -108,6 +113,17 @@ const AddItem = () => {
             id="form-imgUrl"
           />
         </label>
+        {imgUrl ? (
+          <div className="py-3 px-2 shadow-lg">
+            <img
+              className="imgForm object-cover py-2 mx-auto"
+              src={imgUrl}
+              alt=""
+            />
+          </div>
+        ) : (
+          ''
+        )}
         <label
           htmlFor="form-price"
           className="pb-2 block text-gray-700 font-bold mb-2"
@@ -120,7 +136,7 @@ const AddItem = () => {
             className="mt-2 h-11 text-lg shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="number"
             id="form-price"
-            step=".01"
+            step=".1"
           />
         </label>
         <label
@@ -133,11 +149,25 @@ const AddItem = () => {
             value={shipping}
             onChange={handleChange}
             id="form-shipping"
-            className="mt-2 h-11 text-lg shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="mt-2 bg-white h-11 text-lg shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           >
             <option value="yes">Yes</option>
             <option value="no">No</option>
           </select>
+        </label>
+        <label
+          htmlFor="form-description"
+          className="pb-2 block text-gray-700 font-bold mb-2"
+        >
+          Description
+          <textarea
+            name="description"
+            value={description}
+            onChange={handleChange}
+            className="mt-2 text-lg h-36 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            type="textarea"
+            id="form-description"
+          />
         </label>
         <input
           type="submit"
