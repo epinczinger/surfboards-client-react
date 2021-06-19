@@ -13,3 +13,8 @@
   min-height: 350px;
   max-height: 350px;
 }
+
+.imgForm {
+  min-height: 100px;
+  max-height: 250px;
+}

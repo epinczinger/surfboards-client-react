@@ -13,6 +13,8 @@ const productsReducer = (state = { surfboards: [], accesories: [] }, action) => 
     }
     case 'PRODUCT_ERROR':
       return action.payload;
+    case 'ADD_PRODUCT':
+      return action.payload;
     default:
       return state;
   }

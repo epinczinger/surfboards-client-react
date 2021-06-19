@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const SERVER_URL = 'https://surfshop-api.herokuapp.com';
+// const SERVER_URL = 'http://localhost:3000';
 
 export const getFavourites = (authToken) => (dispatch) => {
   axios({
@@ -40,17 +41,14 @@ export const getProducts = () => (dispatch) => {
       });
     })
     .catch((error) => dispatch({
-      type: 'GET_PRODUCTS_ERROR',
+      type: 'PRODUCT_ERROR',
       payload: error,
     }));
 };
 
-export const createFavourite = (
-  authToken,
-  {
-    id, model, brand, price, img, category,
-  },
-) => (dispatch) => {
+export const createFavourite = (authToken, {
+  id, model, brand, price, img, category,
+}) => (dispatch) => {
   axios({
     method: 'post',
     url: `${SERVER_URL}/favourites`,
@@ -68,7 +66,12 @@ export const createFavourite = (
         dispatch({
           type: 'CREATE_FAVOURITE',
           payload: {
-            id, model, brand, price, img_url: img, category,
+            id,
+            model,
+            brand,
+            price,
+            img_url: img,
+            category,
           },
         });
       }
@@ -79,12 +82,9 @@ export const createFavourite = (
     }));
 };
 
-export const deleteFavourite = (
-  authToken,
-  {
-    id, model, brand, price, img, category,
-  },
-) => (dispatch) => {
+export const deleteFavourite = (authToken, {
+  id, model, brand, price, img, category,
+}) => (dispatch) => {
   axios({
     method: 'delete',
     url: `${SERVER_URL}/favourites`,
@@ -145,7 +145,10 @@ export const signIn = (email, password) => (dispatch) => {
     })
     .catch((error) => {
       if (error.message === 'Request failed with status code 422') {
-        dispatch({ type: 'SIGN_ERROR', payload: 'There is a problem with your email/password.' });
+        dispatch({
+          type: 'SIGN_ERROR',
+          payload: 'There is a problem with your email/password.',
+        });
       }
     });
 };
@@ -162,22 +165,24 @@ export const signUp = (email, password) => (dispatch) => {
       Accept: 'application/json',
       mode: 'cors',
     },
-  }).then((response) => {
-    if (typeof response.headers['access-token'] === 'string') {
-      window.localStorage.setItem(
-        'sessionID',
-        response.headers['access-token'],
-      );
-      dispatch({
-        type: 'SIGN_IN_UP',
-        payload: response.headers['access-token'],
-      });
-    }
-  }).catch((error) => {
-    if (error.message === 'Request failed with status code 422') {
-      dispatch({ type: 'SIGN_ERROR', payload: 'Account already exists..' });
-    }
-  });
+  })
+    .then((response) => {
+      if (typeof response.headers['access-token'] === 'string') {
+        window.localStorage.setItem(
+          'sessionID',
+          response.headers['access-token'],
+        );
+        dispatch({
+          type: 'SIGN_IN_UP',
+          payload: response.headers['access-token'],
+        });
+      }
+    })
+    .catch((error) => {
+      if (error.message === 'Request failed with status code 422') {
+        dispatch({ type: 'SIGN_ERROR', payload: 'Account already exists..' });
+      }
+    });
 };
 
 export const signOut = (authToken) => (dispatch) => {
@@ -188,11 +193,13 @@ export const signOut = (authToken) => (dispatch) => {
       Accept: 'application/json',
       Authorization: authToken,
     },
-  }).then(() => {
-    dispatch({
-      type: 'SIGN_OUT',
-    });
-  }).catch((error) => dispatch({ type: 'SIGN_ERROR', payload: error }));
+  })
+    .then(() => {
+      dispatch({
+        type: 'SIGN_OUT',
+      });
+    })
+    .catch((error) => dispatch({ type: 'SIGN_ERROR', payload: error }));
 };
 
 export const resetError = () => (dispatch) => {
@@ -205,4 +212,34 @@ export const localStorageSignIn = (token) => {
     type: 'LOCAL_STORAGE_SIGN_IN',
     payload: sessionData,
   };
+};
+//need to finish it after do it on API
+export const addProduct = () => (dispatch) => {
+  axios({
+    method: 'post',
+    url: `${SERVER_URL}/products`,
+    headers: {
+      Accept: 'application/json',
+      mode: 'cors',
+    },
+    data: {
+      category: 'accesories',
+      model: 'Classic Grip',
+      brand: 'Creature',
+      price: 60,
+      description: 'Best grip ever, used by pro-surfers.',
+      image_url:
+        'https://cdn.shopify.com/s/files/1/0399/4923/8317/products/machado_3_piece_arch_black.jpg?v=1618944849',
+    },
+  }).then((response) => {
+    if (response) {
+      dispatch({
+        type: 'ADD_PRODUCT',
+        payload: response,
+      }).catch((error) => dispatch({
+        type: 'PRODUCT_ERROR',
+        payload: error,
+      }));
+    }
+  });
 };
